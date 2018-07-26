@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { Card, Button } from 'react-native-elements';
+
 import Deck from './src/components/Deck';
 
 const DATA = [
@@ -17,10 +19,36 @@ export default class App extends React.Component {
 
   renderCard(item) {
     return (
-      <Text>{item.text}</Text>
+      <Card
+        key={item.id}
+        title={item.text}
+        image={{ uri: item.uri }}
+      >
+        <Text style={{ marginBottom: 10 }}>
+          Text
+        </Text>
+        <Button
+          icon={{ name: 'code' }}
+          backgroundColor="#03A9F4"
+          title="View"
+        />
+      </Card>
     );
   }
 
+  renderNoMoreCards() {
+    return (
+      <Card title="All Done">
+        <Text style={{ marginBottom: 10 }}>
+          No More Cards
+        </Text>
+        <Button
+          backgroundColor="#03A9F4"
+          title="Get More!"
+        />
+      </Card>
+    );
+  }
   render() {
     console.log('log test');
     return (
@@ -28,6 +56,9 @@ export default class App extends React.Component {
         <Deck
           data={DATA}
           renderCard={this.renderCard}
+          onSwipeRight={() => { console.log('rigt'); }}
+          onSwipeLeft={() => { console.log('left'); }}
+          renderNoMoreCards={this.renderNoMoreCards}
         />
       </View>
     );

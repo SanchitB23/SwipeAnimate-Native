@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "swipe",
+    "name": "Swipe",
     "description": "This project is really great.",
     "slug": "swipe",
     "privacy": "public",
@@ -21,7 +21,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mrawesome.swipe"
+    },
+    "android": {
+      "package": "com.mrawesome.swipe"
     }
   }
 }
